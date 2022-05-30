@@ -1,0 +1,23 @@
+.register_input_wrap{
+    width: 100% !important;
+}
+.register_input_wrap input{
+    background-color: var(--bg-secondary);
+}
+
+.register_input_wrap .input_eror{
+    max-width: 300px;
+}
+
+.register_input_wrap .arrow_bottom{
+    transform: translateY(1px);
+}
+.register_input_wrap .error_icon{
+    top: 15px;
+}
+
+@media(min-width:540px){
+    .register_input_wrap .input_eror{
+        max-width: 100%;
+    }
+}

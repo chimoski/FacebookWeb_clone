@@ -10,3 +10,4 @@ export const userReducer = (state=Cookies.get('user')
    }
 } 
 export default userReducer
+ 

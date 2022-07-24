@@ -12,9 +12,15 @@ export const Header = () => {
   const color = '#65676b'
   const [showSearchMenu, setShowSearchMenu] = useState(false);
   const [showAllMenu, setShowAllMenu] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const allMenu = useRef(null);
+  const userMenu = useRef(null);
   useClickOutside(allMenu,()=>{
     setShowAllMenu(false);
+   
+  })
+  useClickOutside(userMenu,()=>{
+    setShowUserMenu(false);
   })
    
   return (
@@ -58,7 +64,7 @@ export const Header = () => {
           <img src={dummyUser?.pic} alt="" />
           <span>{dummyUser?.firstname}</span>
           </Link>
-          <div className="circle_icon hover1"ref={allMenu}>
+          <div className={`circle_icon hover1 ${showAllMenu && 'active_header'}`} ref={allMenu} >
             <div  onClick ={()=>setShowAllMenu(prev=> !prev)} >
             <Menu/>
             </div>
@@ -71,9 +77,13 @@ export const Header = () => {
              <Notifications/>
              <div className="right_notifications">5</div>
           </div>
-          <div className="circle_icon hover1">
-             <ArrowDown/>
-             <UserMenu dummyUser={dummyUser}/>
+          <div className={`circle_icon hover1  ${!showUserMenu ? '': 'active_header'}`}  ref={userMenu}>
+            <div onClick={()=> setShowUserMenu(!showUserMenu)}>
+            <ArrowDown/>
+            </div>
+            {
+              showUserMenu &&  <UserMenu dummyUser={dummyUser}/>
+            }
           </div>
          
         </div>

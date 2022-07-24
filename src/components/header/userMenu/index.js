@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
+import { DisplayAcces } from './DisplayAcces';
+import { HelpSupport } from './Help&Support';
 import { Settings } from './Settings';
 
 export const UserMenu = ({dummyUser}) => {
@@ -41,7 +43,7 @@ export const UserMenu = ({dummyUser}) => {
                    <i className="right_icon"></i>
                </div>
            </div>
-           <div className="menu_item hover3">
+           <div className="menu_item hover3"  onClick={()=> setVisible(2)}>
                <div className="small_circle">
                    <i className="help_filled_icon"></i>
                </div>
@@ -50,7 +52,7 @@ export const UserMenu = ({dummyUser}) => {
                    <i className="right_icon"></i>
                </div>
            </div>
-           <div className="menu_item hover3">
+           <div className="menu_item hover3" onClick={()=> setVisible(3)}>
                <div className="small_circle">
                    <i className="dark_filled_icon"></i>
                </div>
@@ -70,6 +72,14 @@ export const UserMenu = ({dummyUser}) => {
                {
                    visible === 1  && 
                    <Settings  setVisible={setVisible}/>
+               }
+               {
+                   visible === 2  && 
+                   <HelpSupport  setVisible={setVisible}/>
+               }
+               {
+                   visible === 3  && 
+                   <DisplayAcces  setVisible={setVisible}/>
                }
    </div>
   )

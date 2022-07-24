@@ -7,18 +7,15 @@ import { RegisterInput } from '../inputs/registerInput'
 import {DateOfBirth} from './DateOfBirth'
 import { Gender } from './Gender'
 import PacmanLoader from "react-spinners/PacmanLoader";
-import axios from 'axios'
-import {useDispatch} from 'react-redux'
-import Cookies from 'js-cookie'
-import {useNavigate} from 'react-router-dom'
-import userReducer from '../../reducers/userReducer'
+// import axios from 'axios'
+// import Cookies from 'js-cookie'
+// import { dummyUser } from '../../dummyData/data'
+// import userReducer from '../../reducers/userReducer'
 // import { date } from 'yup'
 
 
 
 export const RegisterForm = ({setShowRegister}) => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
     const userInfo ={
         firstname:'',
         surname:'' ,
@@ -70,8 +67,10 @@ export const RegisterForm = ({setShowRegister}) => {
     const [genderError, setGenderError] = useState('');
     const [error, setError] = useState('');
     const [success,setSuccess] = useState('');
-    const [loading,setLoading]= useState(false);
+    const [loading,setLoading]= useState(false); 
    
+
+
 
     // const registerSubmit = async ()=>{
     //     try {
@@ -102,6 +101,33 @@ export const RegisterForm = ({setShowRegister}) => {
     //         setError(error.response.data.message);
     //     }
     // }
+
+//    const registerSubmit = async()=>{
+//       try {
+          
+//           setLoading(true)
+//         const data = axios.post(dummyUser, {
+//             firstname : users.firstname,
+//             surname : users.surname,
+//             email: users.email,
+//             password:users.password,
+//             bDay:users.bDay,
+//             bMonth:users.bMonth,
+//             bYear:users.bYear,
+//             gender:users.gender
+//            })
+//            console.log(data);
+//            setError('')
+//       } catch (error) {
+//           setLoading(false);
+//           setSuccess('');
+//           setError(error);
+//       }
+//    }
+
+
+
+
   return (
     <div className="blur">
         <div className="register">
@@ -140,7 +166,7 @@ export const RegisterForm = ({setShowRegister}) => {
                         setDateErrors('');
                         setGenderError('');
                         // registerSubmit();
-                        navigate('/');
+                        // navigate('/');
                     }            
                 }}
                 >
